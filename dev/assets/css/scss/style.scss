@@ -9,9 +9,32 @@ $azdrk:#25355f;
 $azul:#31498b;
 $azlgt:#4f89c8;
 $azlgtn:#8f8ab9;
+$branco:#ffffff;
+$brancoFont:#f0f2f4;
 
 
 // --------------------------------------------------------------------------------------------------------------------------------
+//fonts
+@font-face{
+    font-family: FiraSansSemiBold;
+    src:url('../fonts/fira-sans/FiraSans-SemiBold.otf');
+}
+@font-face{
+    font-family: FiraSansLight;
+    src:url('../fonts/fira-sans/FiraSans-Light.otf');
+}
+@font-face{
+    font-family: FiraSansRegular;
+    src:url('../fonts/fira-sans/FiraSans-Regular.otf');
+}
+@font-face{
+    font-family: FiraSansItalic;
+    src:url('../fonts/fira-sans/FiraSans-Italic.otf');
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------------------
+//predefinicoes
 *{
     margin:0;
     padding:0;
@@ -20,16 +43,19 @@ $azlgtn:#8f8ab9;
 html {
   scroll-behavior: smooth;
 }
-
-@font-face{
-    font-family: FiraSansSemiBold;
-    src:url('../fonts/fira-sans/FiraSans-SemiBold.otf');
+.centro{
+    text-align: center;
 }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
+.cem{
+    width:100%;
+}
+.invalido{
+    color:red;
+    display:none;
+}
+//----------------------------------------------------------------------------------------------------------------------------------
     body{
-        background-color: #ff9999;
+        background-color: $branco;
         .image01{
             width:100%;
             height:100vh;
@@ -44,14 +70,38 @@ html {
             height:100vh;
             background-image: url('../img/PRLLX.jpg');
             background-repeat: no-repeat;
-            background-size:cover;
+            // background-size:cover;
             background-attachment: fixed;
             background-position: center;
-        }
-        .faixa{
-            width:100%;
-            height:70vh;
-            background-color: #ffcccc;
+            h1{
+                font-family: FiraSansLight;
+                text-align: center;
+                color:$branco;
+                font-size:36pt;
+            }
+            h2{
+                font-family: FiraSansRegular,sans-serif;
+                text-align: center;
+                color:$branco;
+                font-size:15pt;
+            }
+            .box{
+                width:100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height:100%;
+            }
+            .box2{
+                width:100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: row;
+                margin-top:20px;
+            }
+
         }
         .topo{
             padding-top: 30px;
@@ -71,10 +121,44 @@ html {
                 .fale{
                     font-size: 12pt;
                     width:200px;
-                    font-family: FiraSansSemiBold;
+                    font-family: FiraSansSemiBold,sans-serif;
                 }
             }
+
         }
+        .apresentacao{
+	            width:100%;
+	            background-color: $branco;
+                padding-top: 55px;
+                padding-bottom: 55px;
+                h3{
+                    color:$azlgt;
+                    font-family: FiraSansLight,sans-serif;
+                    font-size:15pt;
+                    background-color: white;
+                }
+                h2{
+                    color:$azdrk;
+                    font-family: FiraSansLight,sans-serif;
+                    font-size:36pt;
+                    padding-bottom: 30px;
+                }
+                h3,h2{
+                    text-align: center;
+                }
+                p.p1{
+                    text-align: left;
+                    color:$cinza60;
+                    padding-left: 100px;
+                    padding-right: 40px;
+                }
+                p.p2{
+                    text-align: left;
+                    color:$cinza60;
+                    padding-left: 100px;
+                    padding-right: 40px;
+                }
+	        }
         .preseta{
             height: 70vh;
             width: 100%;
@@ -86,12 +170,162 @@ html {
             cursor:pointer;
             p{
                 color:white;
-                font-family: FiraSansSemiBold;
+                font-family: FiraSansSemiBold,sans-serif;
                 font-size: 8pt;
             }
         }
+        .formulario{
+            padding-top: 80px;
+            padding-bottom: 80px;
+            form{
+                width:50%;
+                margin: 0 auto;
+                label{
+                    color:$cinza40;
+                    font-family: FiraSansItalic,sans-serif;
+                    text-align: left;
+                    margin-bottom:0;
+                    padding-bottom: 0;
+                    margin-top:35px;
+                    padding-top: 0;
+                }
+                input[type='text']{
+                    width:100%;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-color: $cinza20;
+                    margin-bottom:0;
+                    padding-bottom: 0;
+                    margin-top:0;
+                    padding-top: 0;
+                }
+                input[type='text']:focus{
+                    outline: 0;
+                }
+                input[type='email']{
+                    width:100%;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-color: $cinza20;
+                    margin-bottom:0;
+                    padding-bottom: 0;
+                    margin-top:0;
+                    padding-top: 0;
+                }
+                input[type='email']:focus{
+                    outline: 0;
+                }
+                textarea{
+                    width:100%;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-color: $cinza20;
+                    margin-bottom:0;
+                    padding-bottom: 0;
+                    margin-top:0;
+                    padding-top: 0;
+                }
+                textarea:focus{
+                    outline: 0;
+                }
+            }
+                hr{
+                   color:$azlgt;
+                   background-color:$azlgt;
+                   height: 2px;
+                   width:35px;
+                   margin:0 auto;
+                   margin-bottom: 55px;
+                }
+                h1{
+                    color:$azlgt;
+                    font-family: FiraSansLight,sans-serif;
+                    font-size: 15pt;
+                    text-align: center;
+                    padding-bottom: 4px
+                }
+                .cem{
+                    margin-top: 30px;
+                    text-align: center;
+                    input[type='submit']{
+                        width:200px;
+                        text-align: center;
+                        font-family: FiraSansSemiBold,sans-serif;
+                        font-size: 12pt;
+                        color:#c1c1c1;
+                        border-color:#c1c1c1;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                    }
+                }
+        }
+        div.endereco{
+            width:100%;
+            height:100px;
+            margin:0;
+            .google{
+                float:left;
+                iframe{
+                    width:100%;
+                    padding: 0;
+                }
+            }
+            .rua{
+                background-color: $azdrk;
+                float:left;
+                width:100%;
+                height:480px;
+                padding-left: 85px;
+                display: flex;
+                justify-content:center;
+                align-items: left;
+                flex-direction: column;
+                .enderecoTitulo{
+                    color:$azlgt;
+                    font-family:FiraSansSemiBold;
+                    font-size: 16pt;
+                    margin-bottom: 0;
+                }
+                hr{
+                    color:$azlgt;
+                    background-color: $azlgt;
+                    height:2px;
+                    width:50px;
+                    margin-bottom: 15px;
+                }
+                .end,.tel {
+                    color: $brancoFont;
+                    font-size: 20pt;
+                    font-family:FiraSansLight;
+                }
+                .end div.imagem{
+                    width:40px;
+                    height:100px;
+                    float:left;
+                }
+                .end div.ende{
+                    width:80%;
+                    height:40px;
+                    float:left;
+                }
+                .tel div.imagem{
+                    clear:left;
+                    float:left;
+                    width:40px;
+                    height:100px;
+                }
+                .tel div.tele{
+                    float:left;
+                    width:80%;
+                    height:40px;
+                }
+            }
+        }
     }
-}
+
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
@@ -109,6 +343,6 @@ html {
 
 }
 /* Custom, iPhone Retina */ 
-@media (min-width : 320px) {
+@media (min-width: 1200px) {
 
 }
