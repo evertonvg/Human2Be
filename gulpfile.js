@@ -2,6 +2,8 @@ const
 gulp = require('gulp'),
 sass = require('gulp-sass'),
 sourcemaps = require('gulp-sourcemaps'),
+concat = require('gulp-concat'),
+uglify = require('gulp-uglify'),
 browserSync = require('browser-sync').create(),
 watch = require('gulp-watch');
 
@@ -15,11 +17,22 @@ const path = {
     bootstrapcss: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
     js: 'dev/assets/js',
     css: 'dev/assets/css',
-    axios: 'node_modules/axios/dist/axios.min.js'
+    axios: 'node_modules/axios/dist/axios.min.js',
+    main: 'main.js',
+    jstodos: 'dev/assets/js'
   };
 
+// gulp.task('minificaJS',function(){
+//   return gulp.src(path.jstodos)
+//   .pipe(concat(path.main)) //contatena em um arquivo chamado main.js
+//   .pipe(uglify())//mimifica tudo
+//   .pipe(gulp.dest(path.js))//e manda para a pasta js
+//   .pipe(browserSync.stream());
+// });
+
 gulp.task('js',function(){//enviar arquivos js do npm para a pasta js
-  return gulp.src([path.popper,path.bootstrapjs,path.axios])
+  //path.popper,path.axios
+  return gulp.src([path.bootstrapjs])
   .pipe(gulp.dest(path.js))
   .pipe(browserSync.stream());
 });
@@ -43,7 +56,7 @@ gulp.task('browserSync', function() {
   });
 
   gulp.task('sass', function(){
-    //a marcação define que iremos pegar todos os arquivos SCSS e Sass da pasta src/sass, inclusive subpastas e seu conteúdo se houverem
+    //a marcação define que iremos pegar todos os arquivos SCSS e Sass da pasta src/sass,inclusive subpastas e seu conteúdo se houverem
     return gulp.src(path.srcPath+'**/*.+(scss|sass)')
       .pipe(sourcemaps.init()) //iniciamos o sourcemap para gravar o MAP para debuging
       .pipe(sass({ //iniciamos o modulo do Sass

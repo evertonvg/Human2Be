@@ -37,7 +37,7 @@ $brancoFont:#f0f2f4;
 //mixins
 @mixin for-size($size) {
   @if $size == phone-only {
-    @media (max-width: 599px) { @content; }
+    @media (max-width: 600px) { @content; }
   }
   @else if $size == tablet-landscape-up {
     @media (min-width: 900px) { @content; }
@@ -117,7 +117,7 @@ html {
         .topo{
             padding-top: 30px;
             width: 100%;
-            height: 20vh;
+            height: 10vh;
             .icone{
                 text-align: left;
                 width:50%;
@@ -158,7 +158,7 @@ html {
                     text-align: center;
                 }
                 p.p1{
-                    text-align: left;
+                    text-align: justify;
                     color:$cinza60;
                     padding-left: 100px;
                     padding-right: 40px;
@@ -171,7 +171,7 @@ html {
                 }
 	        }
         .preseta{
-            height: 70vh;
+            height: 80vh;
             width: 100%;
         }
         .seta{
@@ -313,31 +313,19 @@ html {
                     width:50px;
                     margin-bottom: 15px;
                 }
-                .end,.tel {
+                ol{
                     color: $brancoFont;
                     font-size: 20pt;
                     font-family:FiraSansLight;
-                }
-                .end div.imagem{
-                    width:40px;
-                    height:100px;
-                    float:left;
-                }
-                .end div.ende{
-                    width:80%;
-                    height:40px;
-                    float:left;
-                }
-                .tel div.imagem{
-                    clear:left;
-                    float:left;
-                    width:40px;
-                    height:100px;
-                }
-                .tel div.tele{
-                    float:left;
-                    width:80%;
-                    height:40px;
+                    list-style:none;
+                    padding-left: 20px;
+                    :first-child{
+                        list-style-image: url('../../assets/img/endereco.png');
+                    }
+                    :last-child{
+                        list-style-image: url('../../assets/img/telefone.png');
+                        margin-top: 15px;
+                    }
                 }
             }
         }
@@ -384,334 +372,13 @@ html {
         }
     }
 
-    @include for-size(tablet-landscape-up) {
-        body{
-        background-color: $branco;
-        .image01{
-            width:100%;
-            height:100vh;
-            background-image: url('../img/bannerFamilly.jpg');
-            background-repeat: no-repeat;
-            background-size:cover;
-            background-attachment: fixed;
-            background-position: center;
-        }
-        .image02{
-            width:100%;
-            height:100vh;
-            background-image: url('../img/PRLLX.jpg');
-            background-repeat: no-repeat;
-            // background-size:cover;
-            background-attachment: fixed;
-            background-position: center;
-            h1{
-                font-family: FiraSansLight;
-                text-align: center;
-                color:$branco;
-                font-size:36pt;
-            }
-            h2{
-                font-family: FiraSansRegular,sans-serif;
-                text-align: center;
-                color:$branco;
-                font-size:15pt;
-            }
-            .box{
-                width:100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                height:100%;
-            }
-            .box2{
-                width:100%;
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                flex-direction: row;
-                margin-top:20px;
-            }
-
-        }
-        .topo{
-            padding-top: 30px;
-            width: 100%;
-            height: 20vh;
-            .icone{
-                text-align: left;
-                width:50%;
-                height:100%;
-                float:left;
-            }
-            .botaoContato{
-                text-align: right;
-                width:50%;
-                height:100%;
-                float:left;
-                .fale{
-                    font-size: 12pt;
-                    width:200px;
-                    font-family: FiraSansSemiBold,sans-serif;
-                }
-            }
-
-        }
-        .apresentacao{
-                width:100%;
-                background-color: $branco;
-                padding-top: 55px;
-                padding-bottom: 55px;
-                h3{
-                    color:$azlgt;
-                    font-family: FiraSansLight,sans-serif;
-                    font-size:15pt;
-                    background-color: white;
-                }
-                h2{
-                    color:$azdrk;
-                    font-family: FiraSansLight,sans-serif;
-                    font-size:36pt;
-                    padding-bottom: 30px;
-                }
-                h3,h2{
-                    text-align: center;
-                }
-                p.p1{
-                    text-align: left;
-                    color:$cinza60;
-                    padding-left: 100px;
-                    padding-right: 40px;
-                }
-                p.p2{
-                    text-align: left;
-                    color:$cinza60;
-                    padding-left: 100px;
-                    padding-right: 40px;
-                }
-            }
-        .preseta{
-            height: 70vh;
-            width: 100%;
-        }
-        .seta{
-            height: 10vh;
-            width: 100%;
-            text-align: center;
-            cursor:pointer;
-            p{
-                color:white;
-                font-family: FiraSansSemiBold,sans-serif;
-                font-size: 8pt;
-            }
-        }
-        .formulario{
-            padding-top: 80px;
-            padding-bottom: 80px;
-            form{
-                width:50%;
-                margin: 0 auto;
-                label{
-                    color:$cinza40;
-                    font-family: FiraSansItalic,sans-serif;
-                    text-align: left;
-                    margin-bottom:0;
-                    padding-bottom: 0;
-                    margin-top:35px;
-                    padding-top: 0;
-                }
-                input[type='text']{
-                    width:100%;
-                    border-top: none;
-                    border-left: none;
-                    border-right: none;
-                    border-color: $cinza20;
-                    margin-bottom:0;
-                    padding-bottom: 0;
-                    margin-top:0;
-                    padding-top: 0;
-                }
-                input[type='text']:focus{
-                    outline: 0;
-                }
-                input[type='email']{
-                    width:100%;
-                    border-top: none;
-                    border-left: none;
-                    border-right: none;
-                    border-color: $cinza20;
-                    margin-bottom:0;
-                    padding-bottom: 0;
-                    margin-top:0;
-                    padding-top: 0;
-                }
-                input[type='email']:focus{
-                    outline: 0;
-                }
-                textarea{
-                    width:100%;
-                    border-top: none;
-                    border-left: none;
-                    border-right: none;
-                    border-color: $cinza20;
-                    margin-bottom:0;
-                    padding-bottom: 0;
-                    margin-top:0;
-                    padding-top: 0;
-                }
-                textarea:focus{
-                    outline: 0;
-                }
-            }
-                hr{
-                   color:$azlgt;
-                   background-color:$azlgt;
-                   height: 2px;
-                   width:35px;
-                   margin:0 auto;
-                   margin-bottom: 55px;
-                }
-                h1{
-                    color:$azlgt;
-                    font-family: FiraSansLight,sans-serif;
-                    font-size: 15pt;
-                    text-align: center;
-                    padding-bottom: 4px
-                }
-                .cem{
-                    margin-top: 30px;
-                    text-align: center;
-                    input[type='submit']{
-                        width:200px;
-                        text-align: center;
-                        font-family: FiraSansSemiBold,sans-serif;
-                        font-size: 12pt;
-                        color:#c1c1c1;
-                        border-color:#c1c1c1;
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                    }
-                }
-        }
-        .endereco{
-            width:100%;
-            height:100px;
-            margin:0;
-            position:relative;
-            a{
-                position:absolute;
-                bottom: 20px;
-                right:20px;
-            }
-            .google{
-                float:left;
-                iframe{
-                    width:100%;
-                    padding: 0;
-                }
-            }
-            .rua{
-                background-color: $azdrk;
-                float:left;
-                width:100%;
-                height:490px;
-                padding-left: 85px;
-                display: flex;
-                justify-content:center;
-                align-items: left;
-                flex-direction: column;
-                border:none;
-                .enderecoTitulo{
-                    color:$azlgt;
-                    font-family:FiraSansSemiBold;
-                    font-size: 16pt;
-                    margin-bottom: 0;
-                }
-                hr{
-                    color:$azlgt;
-                    background-color: $azlgt;
-                    height:2px;
-                    width:50px;
-                    margin-bottom: 15px;
-                }
-                .end,.tel {
-                    color: $brancoFont;
-                    font-size: 20pt;
-                    font-family:FiraSansLight;
-                }
-                .end div.imagem{
-                    width:40px;
-                    height:100px;
-                    float:left;
-                }
-                .end div.ende{
-                    width:80%;
-                    height:40px;
-                    float:left;
-                }
-                .tel div.imagem{
-                    clear:left;
-                    float:left;
-                    width:40px;
-                    height:100px;
-                }
-                .tel div.tele{
-                    float:left;
-                    width:80%;
-                    height:40px;
-                }
-            }
-        }
-        footer{
-            border:none;
-            width:100%;
-            background-color: $azdrk;
-            clear:both;
-            border:none;
-            .contfooter{
-                border-top: 2px solid $azlgt;
-                padding-top: 100px;
-
-                .face{
-                    float:left;
-                    width:10%;
-                    text-align: left;
-                    padding-top: 15px;
-                }
-                 .zecon{
-                    float:left;
-                    width:80%;
-                    text-align: center;
-                }
-                 .h2b{
-                    float:left;
-                    width:10%;
-                    text-align: right;
-                    padding-top: 15px;
-                }
-                .copy{
-                    padding-top: 120px;
-                    padding-bottom: 30px;
-                    width:100%;
-                    text-align: center;
-                    color:$azlgt;
-                    font-family: FiraSansRegular;
-                    font-size:12pt;
-                    span{
-                        font-family: FiraSansSemiBold;
-                    }
-                }
-            }
-        }
-    }
-    }
     @include for-size(phone-only) {
         body{
         background-color: $branco;
         .image01{
-            height:85vh;
-            max-width: 100%;
-            background-position: -400px -50px;
+            height:500px;
+            background-attachment:initial;
+            background-size: cover;
         }
         .image02{
             height:60vh;
@@ -724,16 +391,16 @@ html {
 
         }
         .topo{
-            height: 10vh;
+            height: 100px;
             .icone{
                 img{
-                    width:200px;
+                    width:150px;
                 }
             }
             .botaoContato{
                 .fale{
                     font-size: 10pt;
-                    width:150px;
+                    width:130px;
                 }
             }
 
@@ -758,10 +425,10 @@ html {
                 }
             }
         .preseta{
-            height: 60vh;
+            height: 300px;
         }
         .seta{
-            height: 10vh;
+            height: 100px;
             p{
                 font-size: 8pt;
             }
@@ -789,13 +456,16 @@ html {
                 }
             }
             .rua{
-                height:300px;
-                padding-left: 25px;
+                height:200px;
+                padding-left: 15px;
+                display: flex;
                 .enderecoTitulo{
-                    font-size: 16pt;
-                }
-                .end,.tel {
                     font-size: 14pt;
+                    padding-top: 0;
+                }
+                ol{
+                    font-size: 12pt;
+                    padding-left: 20px;
                 }
             }
         }
@@ -807,18 +477,21 @@ html {
             border:none;
             .contfooter{
                 border-top: 2px solid $azlgt;
-                padding-top: 50px;
+                padding-top: 30px;
                 .zecon{
                     float:left;
                     width:80%;
                     text-align: center;
                     img{
-                        width: 200px;
+                        width: 150px;
                     }
                 }
                 .copy{
+                    padding-top: 5px;
                     padding-bottom: 10px;
-                    font-size:10pt;
+                    font-size:8pt;
+                    padding-left: 10px;
+                    padding-right: 20px;
                 }
             }
         }

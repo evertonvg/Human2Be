@@ -5,8 +5,6 @@ let emailInvalido =  document.querySelector('.emailInvalido');
 let inputMensagem =  document.querySelector('.mensagem');
 let mensagemInvalido =   document.querySelector('.mensagemInvalido');
 let submit = document.querySelector('.enviar');
-let usuario = inputEmail.value.substring(0, inputEmail.value.indexOf("@"));
-let dominio = inputEmail.value.substring(inputEmail.value.indexOf("@")+ 1, inputEmail.value.length);
 
 submit.addEventListener('click',function(e){
 	if(inputNome.value==''){
@@ -49,6 +47,28 @@ submit.addEventListener('click',function(e){
 		emailInvalido.style.display = 'none';
 	}
 
+	var usuario = inputEmail.value.substring(0, inputEmail.value.indexOf("@"));
+	var dominio = inputEmail.value.substring(inputEmail.value.indexOf("@")+ 1, inputEmail.value.length);
+
+	if((usuario.length >=1) &&
+    (dominio.length >=3) &&
+    (usuario.search("@")==-1) &&
+    (dominio.search("@")==-1) &&
+    (usuario.search(" ")==-1) &&
+    (dominio.search(" ")==-1) &&
+    (dominio.search(".")!=-1) &&
+    (dominio.indexOf(".") >=1)&&
+    (dominio.lastIndexOf(".") < dominio.length - 1)){
+		emailInvalido.style.display = 'none';
+
+	}else{
+		e.preventDefault();
+		inputEmail.focus();
+		emailInvalido.style.display = 'block';
+		emailInvalido.innerHTML = 'Por favor, insira um email valido';
+		return false;
+	}
+
 	if(inputMensagem.value==''){
 		e.preventDefault();
 		inputMensagem.focus();
@@ -58,11 +78,12 @@ submit.addEventListener('click',function(e){
 	}else{
 		mensagemInvalido.style.display = 'none';
 	}
-	if(inputMensagem.value.length<50){
+
+	if(inputMensagem.value.length<10){
 		e.preventDefault();
 		inputMensagem.focus();
 		mensagemInvalido.style.display = 'block';
-		mensagemInvalido.innerHTML = 'A mensagem deve conter um minimo de 50 caracteres';
+		mensagemInvalido.innerHTML = 'A mensagem deve conter um minimo de 10 caracteres';
 		return false;
 	}else{
 		mensagemInvalido.style.display = 'none';
