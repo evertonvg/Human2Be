@@ -1,0 +1,3 @@
+não é necessário instalar as dependencias,
+apenas executar o index.html dentro
+da pasta dev para ver o resultado
